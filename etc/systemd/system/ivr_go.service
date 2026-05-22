@@ -1,0 +1,17 @@
+[Unit]
+Description=Go IVR FastAGI Service
+After=network.target
+
+[Service]
+Type=simple
+User=asterisk
+Group=asterisk
+WorkingDirectory=/opt/go_ivr
+ExecStart=/opt/go_ivr/go_ivr
+Restart=always
+RestartSec=5
+StandardOutput=append:/var/log/go_ivr.log
+StandardError=append:/var/log/go_ivr.log
+
+[Install]
+WantedBy=multi-user.target
